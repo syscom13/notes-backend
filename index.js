@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 const morgan = require('morgan')
 
-const notes = [
+let notes = [
     {
         id: 1,
         content: "HTML is easy",

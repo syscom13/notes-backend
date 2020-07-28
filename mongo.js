@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
-    console.log('Please provide the password as an argument <password>')
-    process.exit(1)
+  console.log('Please provide the password as an argument <password>')
+  process.exit(1)
 }
 
 const password = process.argv[2]
@@ -12,14 +12,14 @@ const url = `mongodb+srv://nicolas:${password}@cluster0.d1hwe.mongodb.net/note-a
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const noteSchema = new mongoose.Schema({
-    content: String,
-    date: Date,
-    important: Boolean
+  content: String,
+  date: Date,
+  important: Boolean
 })
 
 const Note = mongoose.model('Note', noteSchema)
 
-/* 
+/*
 const note = new Note({
     content: 'I love the MERN stack!',
     date: new Date(),
@@ -33,8 +33,8 @@ note.save().then(result => {
 */
 
 Note.find({}).then(result => {
-    result.forEach(note => {
-        console.log(note)
-    })
-    mongoose.connection.close()
+  result.forEach(note => {
+    console.log(note)
+  })
+  mongoose.connection.close()
 })

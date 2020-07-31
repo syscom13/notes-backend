@@ -1,4 +1,5 @@
 const morgan = require('morgan')
+const logger = require('./logger')
 
 morgan.token('body', (req) => JSON.stringify(req.body))
 
@@ -18,6 +19,12 @@ const errorHandler = (error, req, res, next) => {
   if (error.name === 'ValidationError') {
     return res.status(400).send({ error: error.message })
   }
+
+  if (error.name === 'JsonWebTokenError') {
+    return res.status(401).json({ error: 'invalid token' })
+  }
+
+  logger.error(error)
 
   next(error)
 }

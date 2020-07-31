@@ -1,9 +1,42 @@
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI1ZjIzNDVlMzhiNzViZTRkYWYyZWZiNTEiLCJpYXQiOjE1OTYxNjIyOTZ9.1ABNIZ8_2G_-OzHJ1zTsM6j034LXUE7bmrn6o7Ya1Ho
+
+{
+    "content": "Single Page Apps use token authorization",
+    "important": true
+}
+
+###
+
+POST http://localhost:3001/api/notes
+Content-Type: application/json
 
 {
     "content": "Testing the backend with VS Code REST client",
     "important": true
+}
+
+###
+
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+    "content": "This note has been attributed to a specific user thanks to the userId field",
+    "important": true,
+    "userId": "5f2345e38b75be4daf2efb51"
+}
+
+###
+
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+    "content": "Another note has been attributed to a specific user",
+    "important": true,
+    "userId": "5f2345e38b75be4daf2efb51"
 }
 
 ###
